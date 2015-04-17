@@ -21,8 +21,7 @@ import com.example.billsu.gh.R;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
-
+import java.util.Random;
 
 
 public class MainActivity extends Activity {
@@ -30,7 +29,7 @@ public class MainActivity extends Activity {
     ImageView Scared_Person;
     Person guy;
     ArrayList<Rect> obstacles;
-    ArrayList<Ghost> ghost;
+    ArrayList<Ghost> ghosts = new ArrayList<Ghost>();
     RelativeLayout layout;
 
     @Override
@@ -45,17 +44,34 @@ public class MainActivity extends Activity {
 
         guy = new Person((double) Scared_Person.getX(), (double) Scared_Person.getY(), (double) Scared_Person.getWidth(), (double) Scared_Person.getHeight());
 
-        Log.i("image starts at", " " + Scared_Person.getX()+" "+ Scared_Person.getY());
+       // Log.i("image starts at", " " + Scared_Person.getX()+" "+ Scared_Person.getY());
 
-        layout = (RelativeLayout) findViewById(R.id.layout);
-        ImageView ghost = new ImageView(this);
-        ghost.setImageResource(R.drawable.ufo);
-        ghost.setVisibility(View.VISIBLE);
 
-        layout.addView(ghost);
         ImageView radial = (ImageView)findViewById(R.id.lanternradial);
         radial.setX(Scared_Person.getX());
         radial.setY(Scared_Person.getY());
+        layout = (RelativeLayout) findViewById(R.id.layout);
+//
+//        ImageView ghost = new ImageView(this);
+//        ghost.setImageResource(R.drawable.ghost1);
+//        ghost.setVisibility(View.VISIBLE);
+//
+//        layout.addView(ghost);
+        Random rand = new Random(500);
+
+        for (int i = 0; i<2; i++ ) {
+            ImageView ghost = new ImageView(this);
+            ghost.setImageResource(R.drawable.ghost_tiny);
+            ghost.setVisibility(View.VISIBLE);
+
+            layout.addView(ghost);
+
+
+
+            Ghost casper = new FloatingGhost((double) rand.nextInt()/2, (double) rand.nextInt(), ghost);
+            ghosts.add(casper);
+        }
+
     }
 
  /*   public void onStart(){
@@ -82,14 +98,18 @@ public class MainActivity extends Activity {
       if (event.getAction() == MotionEvent.ACTION_UP == false){
           guy.setTarget((double) event.getX(), (double) event.getY());
           guy.move();
-          Log.i("Guy:", "Guy is now at " + guy.getX() + ",  " + guy.getY());
+
+          for ( Ghost g: this.ghosts ){
+              g.move();
+          }
+
 
           Scared_Person.setX((float) guy.getX());
           Scared_Person.setY((float) guy.getY()-147);
-          Log.i("image:", "now at "+ Scared_Person.getX() +", " + Scared_Person.getY());
-          int[] location=new int[2];
-          Scared_Person.getLocationOnScreen(location);
-          Log.i("image position now at", " " + location[0]+ " "+ location[1]);
+//          Log.i("image:", "now at "+ Scared_Person.getX() +", " + Scared_Person.getY());
+//          int[] location=new int[2];
+//          Scared_Person.getLocationOnScreen(location);
+//          Log.i("image position now at", " " + location[0]+ " "+ location[1]);
 
       }
 
