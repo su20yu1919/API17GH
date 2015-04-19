@@ -3,19 +3,27 @@ package com.example.billsu.gh;
  * Created by AlysonI on 4/12/2015.
  * this fella floats around randomly
  */
+import android.util.Log;
+import android.widget.ImageView;
+
 import java.util.Random;
 public class FloatingGhost extends Ghost {
 
 
-    public FloatingGhost(double startX, double startY) {
-        super(startX, startY);
+    public FloatingGhost(double startX, double startY, ImageView image, int id) {
+        super(startX, startY, image, id);
+        speed = 20;
 
     }
 
     public void move() {
-        int c = 25; //this is subject to change, just how many units the ghot will move
-        Random rand = new Random(4);
-        int n = rand.nextInt(); // chooses a random direction to move in
+//        Log.i("FloatingGhost", "move method says hi");
+//        Log.i("FloatingGhost",this.getX()+ " " +this.getY() );
+
+        int c = 50; //this is subject to change, just how many units the ghost will move
+        Random rand = new Random();
+        int n = rand.nextInt()%4; // chooses a random direction to move in
+      //  Log.i("FloatingGhost", "random = " + n);
         if (n == 0) {
             this.tX = (this.x + c);
         }
@@ -41,8 +49,21 @@ public class FloatingGhost extends Ghost {
         // actually move now
         this.x = this.x + xSpeed; //* time;
         this.y = this.y + ySpeed; //* time;
+        if(x<10){
+            x = 10;
+        }
+        if (y<10) {
+            y=10;
+        }
+        if (x>710) {
+            x=710;
+        }
+        if (y>800) {
+            y=800;
+        }
         this.updateHitbox(); //so the hitBox follows the ghost
         this.updateImage();
+        //Log.i("FloatingGhost", this.getX()+ " "+ this.getY());
     }
 }
 

@@ -54,6 +54,20 @@ public class Person  {
         // actually move now
         this.x = this.x + xSpeed; //* time;
         this.y = this.y + ySpeed; //* time;
+
+        if(x<10){
+            x = 10;
+        }
+        if (y<10) {
+            y=10;
+        }
+        if (x>710) {
+            x=710;
+        }
+        if (y>800) {
+            y=800;
+        }
+
         this.hitbox = new Rect((int) (x), (int) (y), (int) (x + this.width), (int) y + (int)this.height);
         // System.out.println("Human Moved By:" + this.targetX + " " + this.x);
     }
