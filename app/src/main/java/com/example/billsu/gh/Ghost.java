@@ -1,5 +1,6 @@
 package com.example.billsu.gh;
 import android.graphics.Rect;
+import android.util.Log;
 import android.widget.ImageView;
 
 
@@ -24,11 +25,10 @@ public class Ghost {
     protected double speed;
     protected ImageView Ghost_Image;
 
-    public Ghost(double startX, double startY) {
+    public Ghost(double startX, double startY, ImageView image) {
         this.x = startX;
         this.y = startY;
-        Ghost_Image.setImageResource(
-                R.drawable.astroid);
+        Ghost_Image = image;
         this.updateImage();
         this.height = Ghost_Image.getHeight();
         this.width = Ghost_Image.getWidth();
@@ -70,9 +70,12 @@ public class Ghost {
     public void updateImage(){
         this.Ghost_Image.setX((float) this.getX());
         this.Ghost_Image.setY((float) this.getY());
+        Log.i("image is at: ", "" + this.Ghost_Image.getX());
+
     }
 
     // skeletal move method to make java happy
      public void move() {
+
      }
 }
