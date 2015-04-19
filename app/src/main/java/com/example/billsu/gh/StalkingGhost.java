@@ -1,6 +1,7 @@
 package com.example.billsu.gh;
 
 import android.graphics.Rect;
+import android.widget.ImageView;
 
 /**
  * Created by AlysonI on 4/10/2015.
@@ -11,14 +12,15 @@ public class StalkingGhost extends Ghost{
 
     private Person guy;
 
-    public StalkingGhost(Person guy, double startX, double startY){
-       super(startX, startY);
+    public StalkingGhost(Person guy, double startX, double startY, ImageView image, int id){
+       super(startX, startY, image, id);
        this.guy = guy;
+       this.speed=5;
     }
 
     public void move(){
-        this.tY = this.guy.gettY(); // sets the y coordinate equal to the guy he's following
-        this.tX = this.guy.gettX(); // " " for the x coordinate
+        this.tY = this.guy.getY(); // sets the y coordinate equal to the guy he's following
+        this.tX = this.guy.getX(); // " " for the x coordinate
         //this I stole from person class so if it doesn't work blame Luke
         double deltaX = this.tX - this.x;
         double deltaY = this.tY - this.y;
