@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
     ArrayList<Rect> obstacles;
     ArrayList<Ghost> ghosts = new ArrayList<Ghost>();
     RelativeLayout layout;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
