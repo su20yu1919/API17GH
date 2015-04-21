@@ -8,19 +8,10 @@
     android:background="@drawable/game_screen">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Scared_Person"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        ></ImageView>
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Lantern"
-        android:src="@drawable/lantern_off"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
       />
@@ -30,15 +21,30 @@
         android:layout_height="wrap_content"
         android:id="@+id/lanternradial"
         android:src="@drawable/lanthernradial"
-        android:layout_alignTop="@+id/Scared_Person"
-        android:layout_alignEnd="@+id/Lantern" />
+        android:layout_gravity="center"
+        android:layout_x="80dp"
+        android:layout_y="80dp"
+        android:layout_toStartOf="@+id/Scared_Person"
+        android:layout_alignEnd="@+id/lanternkill" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lanternkill"
         android:src="@drawable/lanternkill"
-        android:layout_alignTop="@+id/Scared_Person"
-        android:layout_alignEnd="@+id/Lantern" />
+        android:layout_gravity="left|top"
+        android:layout_x="223dp"
+        android:layout_y="213dp"
+        android:layout_above="@+id/Scared_Person"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Scared_Person"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        ></ImageView>
 
 </RelativeLayout>

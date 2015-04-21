@@ -25,8 +25,9 @@ import java.util.Random;
 
 
 public class MainActivity extends Activity {
-
+    ImageView Radial;
     ImageView Scared_Person;
+    ImageView Halo;
     Person guy;
     ArrayList<Rect> obstacles;
     ArrayList<Ghost> ghosts = new ArrayList<Ghost>();
@@ -47,17 +48,37 @@ public class MainActivity extends Activity {
         // Log.i("image starts at", " " + Scared_Person.getX()+" "+ Scared_Person.getY());
 
 
-        ImageView radial = (ImageView)findViewById(R.id.lanternradial);
-        radial.setX(Scared_Person.getX());
-        radial.setY(Scared_Person.getY());
+        Radial = (ImageView)findViewById(R.id.lanternradial);
+        Radial.setX(Scared_Person.getX()+70);
+        Radial.setY(Scared_Person.getY()+150);
         layout = (RelativeLayout) findViewById(R.id.layout);
+
 //
 //        ImageView ghost = new ImageView(this);
 //        ghost.setImageResource(R.drawable.ghost1);
 //        ghost.setVisibility(View.VISIBLE);
 //
 //        layout.addView(ghost);
+        Halo = (ImageView)findViewById(R.id.lanternkill);
         Random rand = new Random(500);
+
+        final ImageButton Lantern = (ImageButton) findViewById(R.id.Lantern);
+        Lantern.setImageResource(R.drawable.lantern_off);
+
+        Lantern.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Halo = (ImageView)findViewById(R.id.lanternkill);
+                Halo.setX(Scared_Person.getX()-210);
+                Halo.setY(Scared_Person.getY()-180);
+                if (Halo.getVisibility() == View.VISIBLE){
+                Halo.setVisibility(View.INVISIBLE);
+                Lantern.setImageResource(R.drawable.lantern_off);}
+                else {
+                    Halo.setVisibility(View.VISIBLE);
+                    Lantern.setImageResource(R.drawable.lantern_on);
+                }
+            }
+        });
 
         for (int i = 0; i<2; i++ ) {
             ImageView ghost = new ImageView(this);
@@ -98,9 +119,7 @@ public class MainActivity extends Activity {
         });
     } */
 
-    public void onButtonClick(View v) {
 
-    }
 
   public boolean onTouchEvent(MotionEvent event){
       try {
@@ -124,6 +143,11 @@ public class MainActivity extends Activity {
 
           Scared_Person.setX((float) guy.getX());
           Scared_Person.setY((float) guy.getY()-147);
+          Radial.setX((float)Scared_Person.getX()-320);
+          Radial.setY((float)Scared_Person.getY()-440);
+          Halo.setX(Scared_Person.getX()-200);
+          Halo.setY(Scared_Person.getY()-200);
+
 //          Log.i("image:", "now at "+ Scared_Person.getX() +", " + Scared_Person.getY());
 //          int[] location=new int[2];
 //          Scared_Person.getLocationOnScreen(location);
