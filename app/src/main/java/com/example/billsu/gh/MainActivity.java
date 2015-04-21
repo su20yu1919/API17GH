@@ -40,37 +40,32 @@ public class MainActivity extends Activity {
         Scared_Person = (ImageView) findViewById(R.id.Scared_Person);
         Scared_Person.setImageResource(
                 R.drawable.thresh);
-        Scared_Person.setX((float)361.72906);
-        Scared_Person.setY((float)403.70868);
+        Scared_Person.setX((float) 361.72906);
+        Scared_Person.setY((float) 403.70868);
 
         guy = new Person((double) Scared_Person.getX(), (double) Scared_Person.getY(), (double) Scared_Person.getWidth(), (double) Scared_Person.getHeight());
 
-<<<<<<< HEAD
         // Log.i("image starts at", " " + Scared_Person.getX()+" "+ Scared_Person.getY());
 
 
-        Radial = (ImageView)findViewById(R.id.lanternradial);
-        Radial.setX(Scared_Person.getX()+70);
-        Radial.setY(Scared_Person.getY()+150);
+        Radial = (ImageView) findViewById(R.id.lanternradial);
+        Radial.setX(Scared_Person.getX() + 70);
+        Radial.setY(Scared_Person.getY() + 150);
         layout = (RelativeLayout) findViewById(R.id.layout);
-
-=======
-       // Log.i("image starts at", " " + Scared_Person.getX()+" "+ Scared_Person.getY());
+        // Log.i("image starts at", " " + Scared_Person.getX()+" "+ Scared_Person.getY());
 
 
-        ImageView radial = (ImageView)findViewById(R.id.lanternradial);
+        ImageView radial = (ImageView) findViewById(R.id.lanternradial);
         radial.setX(Scared_Person.getX());
         radial.setY(Scared_Person.getY());
         layout = (RelativeLayout) findViewById(R.id.layout);
->>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
 //
 //        ImageView ghost = new ImageView(this);
 //        ghost.setImageResource(R.drawable.ghost1);
 //        ghost.setVisibility(View.VISIBLE);
 //
-//        layout.addView(ghost);
-<<<<<<< HEAD
-        Halo = (ImageView)findViewById(R.id.lanternkill);
+//        layout.addView(ghost)
+        Halo = (ImageView) findViewById(R.id.lanternkill);
         Random rand = new Random(500);
 
         final ImageButton Lantern = (ImageButton) findViewById(R.id.Lantern);
@@ -78,24 +73,21 @@ public class MainActivity extends Activity {
 
         Lantern.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Halo = (ImageView)findViewById(R.id.lanternkill);
-                Halo.setX(Scared_Person.getX()-210);
-                Halo.setY(Scared_Person.getY()-180);
-                if (Halo.getVisibility() == View.VISIBLE){
-                Halo.setVisibility(View.INVISIBLE);
-                Lantern.setImageResource(R.drawable.lantern_off);}
-                else {
+                Halo = (ImageView) findViewById(R.id.lanternkill);
+                Halo.setX(Scared_Person.getX() - 210);
+                Halo.setY(Scared_Person.getY() - 180);
+                if (Halo.getVisibility() == View.VISIBLE) {
+                    Halo.setVisibility(View.INVISIBLE);
+                    Lantern.setImageResource(R.drawable.lantern_off);
+                } else {
                     Halo.setVisibility(View.VISIBLE);
                     Lantern.setImageResource(R.drawable.lantern_on);
                 }
             }
         });
 
-=======
-        Random rand = new Random(500);
 
->>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
-        for (int i = 0; i<2; i++ ) {
+        for (int i = 0; i < 2; i++) {
             ImageView ghost = new ImageView(this);
             ghost.setImageResource(R.drawable.ghost_tiny);
             ghost.setVisibility(View.VISIBLE);
@@ -103,13 +95,11 @@ public class MainActivity extends Activity {
             layout.addView(ghost);
 
 
-
-<<<<<<< HEAD
-            Ghost casper = new FloatingGhost((double)100+(50*i), (double) 200+(100*i), ghost, i);
+            Ghost casper = new FloatingGhost((double) 100 + (50 * i), (double) 200 + (100 * i), ghost, i);
             ghosts.add(casper);
         }
 
-        for (int i = 2; i<4; i++ ) {
+        for (int i = 2; i < 4; i++) {
             ImageView ghost = new ImageView(this);
             ghost.setImageResource(R.drawable.ghost_tiny);
             ghost.setVisibility(View.VISIBLE);
@@ -117,19 +107,11 @@ public class MainActivity extends Activity {
             layout.addView(ghost);
 
 
-
-            Ghost casper = new StalkingGhost(this.guy, (double)210+(50*i), (double) 400+(100*i), ghost, i);
+            Ghost casper = new StalkingGhost(this.guy, (double) 210 + (50 * i), (double) 400 + (100 * i), ghost, i);
             ghosts.add(casper);
         }
-
-
-=======
-            Ghost casper = new FloatingGhost((double) rand.nextInt()/2, (double) rand.nextInt(), ghost);
-            ghosts.add(casper);
-        }
-
->>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
     }
+
 
  /*   public void onStart(){
         Handler handler = new Handler();
@@ -153,7 +135,6 @@ public class MainActivity extends Activity {
       if (event.getAction() == MotionEvent.ACTION_UP == false){
           guy.setTarget((double) event.getX(), (double) event.getY());
           guy.move();
-<<<<<<< HEAD
           for ( Ghost g : ghosts ){
                 g.move();
                 for(Ghost c: ghosts){
@@ -171,7 +152,6 @@ public class MainActivity extends Activity {
           Halo.setX(Scared_Person.getX()-200);
           Halo.setY(Scared_Person.getY()-200);
 
-=======
 
           for ( Ghost g: this.ghosts ){
               g.move();
@@ -180,7 +160,6 @@ public class MainActivity extends Activity {
 
           Scared_Person.setX((float) guy.getX());
           Scared_Person.setY((float) guy.getY()-147);
->>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
 //          Log.i("image:", "now at "+ Scared_Person.getX() +", " + Scared_Person.getY());
 //          int[] location=new int[2];
 //          Scared_Person.getLocationOnScreen(location);

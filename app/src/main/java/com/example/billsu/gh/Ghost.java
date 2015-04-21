@@ -26,11 +26,7 @@ public class Ghost {
     protected ImageView Ghost_Image;
     protected int iD;
 
-<<<<<<< HEAD
     public Ghost(double startX, double startY, ImageView image, int id) {
-=======
-    public Ghost(double startX, double startY, ImageView image) {
->>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
         this.x = startX;
         this.y = startY;
         Ghost_Image = image;
