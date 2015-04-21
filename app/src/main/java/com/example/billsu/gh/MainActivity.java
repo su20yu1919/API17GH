@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
 
         guy = new Person((double) Scared_Person.getX(), (double) Scared_Person.getY(), (double) Scared_Person.getWidth(), (double) Scared_Person.getHeight());
 
+<<<<<<< HEAD
         // Log.i("image starts at", " " + Scared_Person.getX()+" "+ Scared_Person.getY());
 
 
@@ -53,12 +54,22 @@ public class MainActivity extends Activity {
         Radial.setY(Scared_Person.getY()+150);
         layout = (RelativeLayout) findViewById(R.id.layout);
 
+=======
+       // Log.i("image starts at", " " + Scared_Person.getX()+" "+ Scared_Person.getY());
+
+
+        ImageView radial = (ImageView)findViewById(R.id.lanternradial);
+        radial.setX(Scared_Person.getX());
+        radial.setY(Scared_Person.getY());
+        layout = (RelativeLayout) findViewById(R.id.layout);
+>>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
 //
 //        ImageView ghost = new ImageView(this);
 //        ghost.setImageResource(R.drawable.ghost1);
 //        ghost.setVisibility(View.VISIBLE);
 //
 //        layout.addView(ghost);
+<<<<<<< HEAD
         Halo = (ImageView)findViewById(R.id.lanternkill);
         Random rand = new Random(500);
 
@@ -80,6 +91,10 @@ public class MainActivity extends Activity {
             }
         });
 
+=======
+        Random rand = new Random(500);
+
+>>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
         for (int i = 0; i<2; i++ ) {
             ImageView ghost = new ImageView(this);
             ghost.setImageResource(R.drawable.ghost_tiny);
@@ -89,6 +104,7 @@ public class MainActivity extends Activity {
 
 
 
+<<<<<<< HEAD
             Ghost casper = new FloatingGhost((double)100+(50*i), (double) 200+(100*i), ghost, i);
             ghosts.add(casper);
         }
@@ -107,6 +123,12 @@ public class MainActivity extends Activity {
         }
 
 
+=======
+            Ghost casper = new FloatingGhost((double) rand.nextInt()/2, (double) rand.nextInt(), ghost);
+            ghosts.add(casper);
+        }
+
+>>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
     }
 
  /*   public void onStart(){
@@ -131,6 +153,7 @@ public class MainActivity extends Activity {
       if (event.getAction() == MotionEvent.ACTION_UP == false){
           guy.setTarget((double) event.getX(), (double) event.getY());
           guy.move();
+<<<<<<< HEAD
           for ( Ghost g : ghosts ){
                 g.move();
                 for(Ghost c: ghosts){
@@ -148,6 +171,16 @@ public class MainActivity extends Activity {
           Halo.setX(Scared_Person.getX()-200);
           Halo.setY(Scared_Person.getY()-200);
 
+=======
+
+          for ( Ghost g: this.ghosts ){
+              g.move();
+          }
+
+
+          Scared_Person.setX((float) guy.getX());
+          Scared_Person.setY((float) guy.getY()-147);
+>>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
 //          Log.i("image:", "now at "+ Scared_Person.getX() +", " + Scared_Person.getY());
 //          int[] location=new int[2];
 //          Scared_Person.getLocationOnScreen(location);

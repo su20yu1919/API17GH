@@ -26,7 +26,11 @@ public class Ghost {
     protected ImageView Ghost_Image;
     protected int iD;
 
+<<<<<<< HEAD
     public Ghost(double startX, double startY, ImageView image, int id) {
+=======
+    public Ghost(double startX, double startY, ImageView image) {
+>>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
         this.x = startX;
         this.y = startY;
         Ghost_Image = image;
@@ -77,10 +81,13 @@ public class Ghost {
         //Log.i("Ghost", "updateImage says hi");
         this.Ghost_Image.setX((float) this.getX());
         this.Ghost_Image.setY((float) this.getY());
+        Log.i("image is at: ", "" + this.Ghost_Image.getX());
+
     }
 
     // skeletal move method to make java happy
      public void move() {
+
      }
 
     public void collides(Ghost ghost) {

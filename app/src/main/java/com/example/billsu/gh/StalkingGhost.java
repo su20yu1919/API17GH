@@ -12,8 +12,13 @@ public class StalkingGhost extends Ghost{
 
     private Person guy;
 
+<<<<<<< HEAD
     public StalkingGhost(Person guy, double startX, double startY, ImageView image, int id){
        super(startX, startY, image, id);
+=======
+    public StalkingGhost(Person guy, double startX, double startY, ImageView image){
+       super(startX, startY, image);
+>>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
        this.guy = guy;
        this.speed=5;
     }

@@ -3,16 +3,24 @@ package com.example.billsu.gh;
  * Created by AlysonI on 4/12/2015.
  * this fella floats around randomly
  */
+<<<<<<< HEAD
 import android.util.Log;
+=======
+>>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
 import android.widget.ImageView;
 
 import java.util.Random;
 public class FloatingGhost extends Ghost {
 
 
+<<<<<<< HEAD
     public FloatingGhost(double startX, double startY, ImageView image, int id) {
         super(startX, startY, image, id);
         speed = 20;
+=======
+    public FloatingGhost(double startX, double startY, ImageView image) {
+        super(startX, startY, image);
+>>>>>>> eb7a2437bb18cab11b44aa75aa547739652c9953
 
     }
 
