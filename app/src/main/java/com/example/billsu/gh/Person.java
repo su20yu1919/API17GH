@@ -68,7 +68,7 @@ public class Person  {
             y=800;
         }
 
-        this.hitbox = new Rect((int) (x), (int) (y), (int) (x + this.width), (int) y + (int)this.height);
+        this.hitbox = new Rect((int) (x), (int) (y) - 100, (int) (x + this.width), (int) y + (int)this.height);
         // System.out.println("Human Moved By:" + this.targetX + " " + this.x);
     }
 

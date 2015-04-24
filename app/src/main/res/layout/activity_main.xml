@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:id = "@+id/layout"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -45,6 +45,25 @@
         android:id="@+id/Scared_Person"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:visibility="visible"></ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/money"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         ></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/lanternradial"
+         />
+
 
 </RelativeLayout>

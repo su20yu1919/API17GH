@@ -1,6 +1,7 @@
 package com.example.billsu.gh;
 import android.graphics.Rect;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 
@@ -31,9 +32,12 @@ public class Ghost {
         this.y = startY;
         Ghost_Image = image;
         this.updateImage();
-        this.height = Ghost_Image.getHeight();
-        this.width = Ghost_Image.getWidth();
-        this.hitbox = new Rect((int) this.x, (int) this.y, (int) (this.x + this.width),
+       // this.height = Ghost_Image.getHeight();
+      //  this.width = Ghost_Image.getWidth();
+       this.height = 50;
+     this.width = 50;
+
+        this.hitbox = new Rect((int) this.x+350, (int) this.y-300, (int) (this.x + this.width),
                 (int) (this.y + this.height));
         this.tX = startX;
         this.tY = startY;
@@ -73,20 +77,22 @@ public class Ghost {
     }
 
     //makes sure the pictures is following our guy
-    public void updateImage(){
+   public void updateImage(){
         //Log.i("Ghost", "updateImage says hi");
         this.Ghost_Image.setX((float) this.getX());
         this.Ghost_Image.setY((float) this.getY());
         Log.i("image is at: ", "" + this.Ghost_Image.getX());
 
     }
-
+    public void die() {
+        this.Ghost_Image.setVisibility(View.GONE);
+    }
     // skeletal move method to make java happy
      public void move() {
 
      }
 
-    public void collides(Ghost ghost) {
+   public void collides(Ghost ghost) {
         Rect intersection = new Rect(this.hitbox);
 
 
@@ -118,3 +124,4 @@ public class Ghost {
 
     }
 }
+
