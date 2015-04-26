@@ -8,17 +8,17 @@ import android.widget.ImageView;
  * this ghost will follow the girl where ever she goes
  */
 
-public class StalkingGhost extends Ghost{
+public class StalkingGhost extends Ghost {
 
     private Person guy;
 
-    public StalkingGhost(Person guy, double startX, double startY, ImageView image, int id){
-       super(startX, startY, image, id);
-       this.guy = guy;
-       this.speed=5;
+    public StalkingGhost(Person guy, double startX, double startY, ImageView image, int id) {
+        super(startX, startY, image, id);
+        this.guy = guy;
+        this.speed = 5;
     }
 
-    public void move(){
+    public void move() {
         this.tY = this.guy.getY(); // sets the y coordinate equal to the guy he's following
         this.tX = this.guy.getX(); // " " for the x coordinate
         //this I stole from person class so if it doesn't work blame Luke

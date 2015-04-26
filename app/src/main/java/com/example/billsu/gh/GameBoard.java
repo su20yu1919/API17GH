@@ -15,27 +15,29 @@ import java.util.Random;
 /**
  * Created by billsu on 4/4/15.
  */
-public class GameBoard extends View{
-        private Paint p;
-        private List<Point> starField = null;
-        private int starAlpha = 80;
-        private int starFade = 2;
-        private static final int NUM_OF_STARS = 25;
-        synchronized public void resetStarField() {
-            starField = null;
+public class GameBoard extends View {
+    private Paint p;
+    private List<Point> starField = null;
+    private int starAlpha = 80;
+    private int starFade = 2;
+    private static final int NUM_OF_STARS = 25;
+
+    synchronized public void resetStarField() {
+        starField = null;
     }
-        public GameBoard(Context context, AttributeSet aSet) {
-            super(context,aSet);
-                    p = new Paint();
-        }
+
+    public GameBoard(Context context, AttributeSet aSet) {
+        super(context, aSet);
+        p = new Paint();
+    }
 
     public void initializeStars(int maxX, int maxY) {
         starField = new ArrayList<Point>();
         for (int i = 0; i < NUM_OF_STARS; i++) {
             Random r = new Random();
-            int x = r.nextInt(maxX-5+1) + 5;
-            int y = r.nextInt(maxY-5+1) + 5;
-            starField.add(new Point (x,y));
+            int x = r.nextInt(maxX - 5 + 1) + 5;
+            int y = r.nextInt(maxY - 5 + 1) + 5;
+            starField.add(new Point(x, y));
         }
 
 
@@ -46,17 +48,17 @@ public class GameBoard extends View{
         p.setColor(Color.BLACK);
         p.setAlpha(255);
         p.setStrokeWidth(1);
-        canvas.drawRect(0,0,getWidth(),getHeight(),p);
+        canvas.drawRect(0, 0, getWidth(), getHeight(), p);
         if (starField == null) {
-            initializeStars(canvas.getWidth(),canvas.getHeight());
+            initializeStars(canvas.getWidth(), canvas.getHeight());
         }
 
         p.setColor(Color.CYAN);
-        p.setAlpha(starAlpha+=starFade);
-        if (starAlpha >= 252 || starAlpha <=80) starFade = starFade*-1;
+        p.setAlpha(starAlpha += starFade);
+        if (starAlpha >= 252 || starAlpha <= 80) starFade = starFade * -1;
         p.setStrokeWidth(5);
-        for (int i =0; i<NUM_OF_STARS; i ++) {
-            canvas.drawPoint(starField.get(i).x,starField.get(i).y, p);
+        for (int i = 0; i < NUM_OF_STARS; i++) {
+            canvas.drawPoint(starField.get(i).x, starField.get(i).y, p);
         }
     }
 }

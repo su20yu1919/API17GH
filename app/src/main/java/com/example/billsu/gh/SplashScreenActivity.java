@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.os.Handler;
 
 
-
 public class SplashScreenActivity extends Activity {
 
     // Splash screen timer
@@ -34,7 +33,7 @@ public class SplashScreenActivity extends Activity {
                 // Start your app main activity
                 Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(intent);
-Log.d("LOG1", "hello");
+                Log.d("LOG1", "hello");
                 // close this activity
                 finish();
             }

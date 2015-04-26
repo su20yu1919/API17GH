@@ -19,25 +19,25 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/lanternkill"
+        android:src="@drawable/lanternkill"
+        android:layout_gravity="left|top|center"
+        android:layout_x="223dp"
+        android:layout_y="213dp"
+        android:visibility="visible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/lanternradial"
         android:src="@drawable/lanthernradial"
         android:layout_gravity="center"
         android:layout_x="80dp"
         android:layout_y="80dp"
-        android:layout_toStartOf="@+id/Scared_Person"
-        android:layout_alignEnd="@+id/lanternkill" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lanternkill"
-        android:src="@drawable/lanternkill"
-        android:layout_gravity="left|top"
-        android:layout_x="223dp"
-        android:layout_y="213dp"
-        android:layout_above="@+id/Scared_Person"
-        android:layout_centerHorizontal="true"
-        android:visibility="invisible"/>
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -62,8 +62,23 @@
         android:text="Medium Text"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/lanternradial"
-         />
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Batt"
+        android:src="@drawable/b_0_0"
+        android:layout_above="@+id/Lantern"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Meter"
+        android:src="@drawable/m_0"
+        android:layout_above="@+id/Batt"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

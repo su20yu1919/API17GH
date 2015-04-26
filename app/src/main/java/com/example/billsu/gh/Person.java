@@ -1,4 +1,5 @@
 package com.example.billsu.gh;
+
 import android.graphics.Rect;
 import android.hardware.camera2.params.MeteringRectangle;
 import android.os.Parcel;
@@ -9,7 +10,7 @@ import java.util.Random;
 /**
  * Created by lukebotti on 3/31/15.
  */
-public class Person  {
+public class Person {
     private double x;
     private double y;
     private double viewDistance;
@@ -29,13 +30,12 @@ public class Person  {
         this.x = xval;
         this.y = yval;
         this.speed = (20);
-        this.width=width;
-        this.height=height;
+        this.width = width;
+        this.height = height;
 
         this.tX = this.x;
         this.tY = this.y;
-        this.hitbox = new Rect((int) (x), (int) (y), (int)x+(int)this.width, (int)(y+this.height));
-
+        this.hitbox = new Rect((int) (x), (int) (y), (int) x + (int) this.width, (int) (y + this.height));
 
 
     }
@@ -55,20 +55,20 @@ public class Person  {
         this.x = this.x + xSpeed; //* time;
         this.y = this.y + ySpeed; //* time;
 
-        if(x<10){
+        if (x < 10) {
             x = 10;
         }
-        if (y<10) {
-            y=10;
+        if (y < 10) {
+            y = 10;
         }
-        if (x>710) {
-            x=710;
+        if (x > 710) {
+            x = 710;
         }
-        if (y>800) {
-            y=800;
+        if (y > 900) {
+            y = 900;
         }
 
-        this.hitbox = new Rect((int) (x), (int) (y) - 100, (int) (x + this.width), (int) y + (int)this.height);
+        this.hitbox = new Rect((int) (x), (int) (y) - 100, (int) (x + this.width), (int) y + (int) this.height);
         // System.out.println("Human Moved By:" + this.targetX + " " + this.x);
     }
 
@@ -76,8 +76,6 @@ public class Person  {
         this.tX = x;
         this.tY = y;
     }
-
-
 
 
     public double getY() {
