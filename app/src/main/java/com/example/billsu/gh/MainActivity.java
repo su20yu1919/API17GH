@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
     ArrayList<ImageView> moneys = new ArrayList<ImageView>();
     RelativeLayout layout;
     private double stressLevel = 0;
-    private double battery = 120;
+    private double battery = 1200;
     private double money;
     private boolean timerRunning = false;
     private double fearLevel = 0;
@@ -64,8 +64,8 @@ public class MainActivity extends Activity {
         Scared_Person = (ImageView) findViewById(R.id.Scared_Person);
         Scared_Person.setImageResource(
                 R.drawable.thresh);
-        Scared_Person.setX((float) 361.72906);
-        Scared_Person.setY((float) 403.70868);
+        Scared_Person.setX((float) 200);
+        Scared_Person.setY((float) 300);
         level = -20623;
 
         Batt = (ImageView) findViewById(R.id.Batt);
@@ -99,8 +99,8 @@ public class MainActivity extends Activity {
         Lantern.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Halo = (ImageView) findViewById(R.id.lanternkill);
-                Halo.setX(Scared_Person.getX() - 90);
-                Halo.setY(Scared_Person.getY() - 370);
+                Halo.setX(Scared_Person.getX() - 100);
+                Halo.setY(Scared_Person.getY() - 110);
                 if (Halo.getVisibility() == View.VISIBLE) {
                     Halo.setVisibility(View.INVISIBLE);
                     Lantern.setImageResource(R.drawable.lantern_off);
@@ -244,25 +244,25 @@ public class MainActivity extends Activity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (fearLevel > 100) {
+        if (fearLevel > 1000) {
             Intent myIntent = new Intent(this, EndGame.class);
             startActivity(myIntent);
             Meter.setImageResource(R.drawable.m_9_game_over);
-        } else if (fearLevel > 90) {
+        } else if (fearLevel > 900) {
             Meter.setImageResource(R.drawable.m_8);
-        } else if (fearLevel > 80) {
+        } else if (fearLevel > 800) {
             Meter.setImageResource(R.drawable.m_7);
-        } else if (fearLevel > 70) {
+        } else if (fearLevel > 700) {
             Meter.setImageResource(R.drawable.m_6);
-        } else if (fearLevel > 60) {
+        } else if (fearLevel > 600) {
             Meter.setImageResource(R.drawable.m_5);
-        } else if (fearLevel > 50) {
+        } else if (fearLevel > 500) {
             Meter.setImageResource(R.drawable.m_4);
-        } else if (fearLevel > 40) {
+        } else if (fearLevel > 400) {
             Meter.setImageResource(R.drawable.m_3);
-        } else if (fearLevel > 30) {
+        } else if (fearLevel > 300) {
             Meter.setImageResource(R.drawable.m_2);
-        } else if (fearLevel > 20) {
+        } else if (fearLevel > 200) {
             Meter.setImageResource(R.drawable.m_1);
         } else {
             Meter.setImageResource(R.drawable.m_0);
@@ -283,8 +283,8 @@ public class MainActivity extends Activity {
         Scared_Person.setY((float) guy.getY() - 147);
         Radial.setX(Scared_Person.getX() - 220);
         Radial.setY(Scared_Person.getY() - 200);
-        Halo.setX(Scared_Person.getX() - 95);
-        Halo.setY(Scared_Person.getY() - 75);
+        Halo.setX(Scared_Person.getX());
+        Halo.setY(Scared_Person.getY());
 
         new CountDownTimer(1000, 100) {
 
@@ -293,7 +293,7 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
-                battery = battery - 2;
+                battery = battery - 1;
                 timerRunning = false;
                 for (Iterator<Ghost> it = ghosts.iterator(); it.hasNext(); ) {
                     Ghost g = it.next();
@@ -311,31 +311,30 @@ public class MainActivity extends Activity {
             }
 
         }.start();
-        if (Halo.getVisibility() == View.VISIBLE && timerRunning == false) {
-            timerRunning = true;
+
             /*    long startTime = System.currentTimeMillis();
                 long timeDiff = startTime;
                 while(timeDiff - startTime < 1000){
                     timeDiff = System.currentTimeMillis();
                     battery = battery - 1;
                 } */
-        }
 
-        if (battery > 100) {
+
+        if (battery > 1000) {
             Batt.setImageResource(R.drawable.b_6);
-        } else if (battery > 80) {
+        } else if (battery > 800) {
             Batt.setImageResource(R.drawable.b_5);
-        } else if (battery > 60) {
+        } else if (battery > 600) {
             Batt.setImageResource(R.drawable.b_4);
-        } else if (battery > 40) {
+        } else if (battery > 400) {
             Batt.setImageResource(R.drawable.b_3);
-        } else if (battery > 20) {
+        } else if (battery > 200) {
             Batt.setImageResource(R.drawable.b_2);
         } else if (battery > 0) {
             Batt.setImageResource(R.drawable.b_1);
         } else {
             Halo.setVisibility(View.INVISIBLE);
-            Halo.setImageResource(R.drawable.lantern_off);
+
             Batt.setImageResource(R.drawable.b_0_0);
 
 
@@ -380,7 +379,8 @@ public class MainActivity extends Activity {
         TextView scoreBoard = (TextView) findViewById(R.id.textView);
         scoreBoard.setText("You Have: " + money + " Ectoplasms");
         scoreBoard.setTextColor(-65536);
-
+        Halo.setX((float) guy.getX()-90);
+        Halo.setY((float) guy.getY()-220);
 
         Scared_Person.setX((float) guy.getX());
         Scared_Person.setY((float) guy.getY() - 147);
