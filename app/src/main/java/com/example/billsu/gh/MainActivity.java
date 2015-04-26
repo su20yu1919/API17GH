@@ -390,10 +390,19 @@ public class MainActivity extends Activity {
 
     }
 
+    public void storeButtonClicked(View v) {
+        Log.i("store button:", "intent step");
+        Intent intent = new Intent(this, StoreActivity.class);
+        Log.i("store button: ", "start store");
+        startActivity(intent);
+    }
 
     public void onPause() {
                 super.onPause();
                 backgroundMusic.pause();
             }
-
+    public void onResume() {
+        super.onResume();
+        backgroundMusic.start();
+    }
 }

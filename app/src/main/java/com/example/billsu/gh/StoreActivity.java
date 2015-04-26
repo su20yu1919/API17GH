@@ -12,31 +12,33 @@ import android.app.Activity;
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
 
 public class StoreActivity extends Activity {
 
     MediaPlayer storeSong;
 
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store_activity);
 
         storeSong = MediaPlayer.create(StoreActivity.this, R.raw.store_sound);
+        storeSong.start();
 
     }
 
-    public void lanternUpgrade() {
 
-    }
-    public void fearUpgrade() {
-
-    }
-
-    public void batteryUpgrade() {
+    public void fearUpgrade(View v) {
 
     }
 
-    public void startGame() {
+    public void batteryUpgrade(View v) {
+
+    }
+
+    public void startGame(View V) {
+        storeSong.stop();
         this.finish(); //closes store, starts up game again
     }
 
