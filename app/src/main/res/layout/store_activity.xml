@@ -3,48 +3,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:orientation="vertical" android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@drawable/upgrade_screen_buttonless"
+android:background="@drawable/upgrade_screen_buttonless2"
 android:weightSum="1">
 
-<ImageButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/laternUpgrade"
-    android:layout_gravity="right"
-    android:layout_weight="0.09"
-    android:background="@drawable/lantern_upgrade_button"
-    android:layout_marginEnd="34dp"
-    android:layout_marginTop="174dp"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true"
-    android:onClick="lanternUpgrade" />
 
 <ImageButton
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/fearUpgrade"
     android:background="@drawable/fear_upgrade_button"
-    android:layout_below="@+id/laternUpgrade"
-    android:layout_alignStart="@+id/laternUpgrade"
-    android:onClick="fearUpgrade"/>
+    android:onClick="fearUpgrade"
+    android:layout_centerVertical="true"
+    android:layout_alignStart="@+id/batteryUpgrade" />
 
 <ImageButton
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/batteryUpgrade"
     android:background="@drawable/battery_upgrade_button"
-    android:layout_below="@+id/fearUpgrade"
-    android:layout_alignStart="@+id/fearUpgrade"
-    android:onClick="batteryUpgrade" />
+    android:onClick="batteryUpgrade"
+    android:layout_above="@+id/startButton"
+    android:layout_toEndOf="@+id/startButton"
+    android:layout_marginBottom="98dp" />
 
 <ImageButton
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/startButton"
-    android:layout_below="@+id/batteryUpgrade"
-    android:layout_centerHorizontal="true"
     android:background="@drawable/start_upgrade_button"
-    android:onClick="startGame" />
+    android:onClick="startGame"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 

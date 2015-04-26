@@ -1,5 +1,6 @@
 package com.example.billsu.gh;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 
 public class EndGame extends ActionBarActivity {
+    MediaPlayer music;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,8 @@ public class EndGame extends ActionBarActivity {
         scoreBoard.setTextSize(30);
         scoreBoard.setX(50);
         scoreBoard.setY(500);
+        music = MediaPlayer.create(EndGame.this, R.raw.game_over);
+        music.start();
     }
 
 
