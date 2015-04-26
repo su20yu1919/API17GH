@@ -14,7 +14,7 @@ public class FloatingGhost extends Ghost {
 
     public FloatingGhost(double startX, double startY, ImageView image, int id) {
         super(startX, startY, image, id);
-        speed = 20;
+        speed = 1;
 
     }
 

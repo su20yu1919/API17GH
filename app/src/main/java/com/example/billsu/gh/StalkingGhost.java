@@ -15,7 +15,7 @@ public class StalkingGhost extends Ghost {
     public StalkingGhost(Person guy, double startX, double startY, ImageView image, int id) {
         super(startX, startY, image, id);
         this.guy = guy;
-        this.speed = 5;
+        this.speed = 1;
     }
 
     public void move() {
