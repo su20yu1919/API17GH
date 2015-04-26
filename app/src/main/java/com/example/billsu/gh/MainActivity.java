@@ -196,7 +196,7 @@ public class MainActivity extends Activity {
             }
 
             //CHANGE THIS TO MODIFY SPAWN RATE, NOT OTHER STUFF
-            level += 1000;
+            level += 600;
 
         }
     };
@@ -390,10 +390,22 @@ public class MainActivity extends Activity {
 
     }
 
+    public void storeButtonClicked(View v) {
+        Log.i("store button:", "intent step");
+        Intent intent = new Intent(this, StoreActivity.class);
+        intent.putExtra("fear", fearLevel);
+        intent.putExtra("battery", battery);
+        intent.putExtra("money", money);
+        Log.i("store button: ", "start store");
+        startActivity(intent);
+    }
 
     public void onPause() {
                 super.onPause();
                 backgroundMusic.pause();
             }
-
+    public void onResume() {
+        super.onResume();
+        backgroundMusic.start();
+    }
 }
