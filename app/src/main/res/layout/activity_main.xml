@@ -12,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Lantern"
+        android:src="@drawable/lantern_off"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-      />
+        android:layout_alignParentStart="true" />
 
 
     <ImageView
@@ -25,8 +25,7 @@
         android:layout_gravity="center"
         android:layout_x="80dp"
         android:layout_y="80dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignEnd="@+id/storeButton" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -75,8 +74,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/Batt"
         android:src="@drawable/b_0_0"
-        android:layout_above="@+id/Lantern"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/Meter" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -90,10 +89,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/storeButton"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
         android:src="@drawable/store_button"
-        android:onClick="storeButtonClicked"/>
+        android:onClick="storeButtonClicked"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/lanternkill" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/save"
+        android:layout_above="@+id/Meter"
+        android:layout_alignEnd="@+id/Lantern" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/load"
+        android:layout_above="@+id/Meter"
+        android:layout_toEndOf="@+id/save" />
 
 
 </RelativeLayout>
