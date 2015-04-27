@@ -1,8 +1,10 @@
 package com.example.billsu.gh;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -25,6 +27,7 @@ import android.widget.TextView;
 
 import com.example.billsu.gh.R;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,9 +62,16 @@ public class MainActivity extends Activity {
     ImageView Batt;
     ImageView Meter;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPref.edit();
+
+
         setContentView(R.layout.activity_main);
         Scared_Person = (ImageView) findViewById(R.id.Scared_Person);
         Scared_Person.setImageResource(
@@ -69,6 +79,8 @@ public class MainActivity extends Activity {
         Scared_Person.setX((float) 200);
         Scared_Person.setY((float) 300);
         level = -20623;
+        final String filename = "save.txt";
+
 
         Batt = (ImageView) findViewById(R.id.Batt);
         Meter = (ImageView) findViewById(R.id.Meter);
@@ -95,6 +107,12 @@ public class MainActivity extends Activity {
 //        layout.addView(ghost)
         Halo = (ImageView) findViewById(R.id.lanternkill);
 
+        final Button save = (Button) findViewById(R.id.save);
+        save.setText("Save");
+
+        final Button load = (Button) findViewById(R.id.load);
+        load.setText("Load");
+
         final ImageButton Lantern = (ImageButton) findViewById(R.id.Lantern);
         Lantern.setImageResource(R.drawable.lantern_off);
 
@@ -110,6 +128,29 @@ public class MainActivity extends Activity {
                     Halo.setVisibility(View.VISIBLE);
                     Lantern.setImageResource(R.drawable.lantern_on);
                 }
+            }
+        });
+
+
+
+        save.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            editor.putInt("battery", (int)battery);
+            editor.putInt("level", (int)level);
+            editor.putInt("fearLevel", (int)fearLevel);
+            editor.putInt("money", (int)money);
+            editor.commit();
+                Log.i("shared preference", "hello there" + sharedPref.getAll());
+            }
+        });
+
+        load.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            battery = sharedPref.getInt("battery", (int)battery);
+            level = sharedPref.getInt("level", (int)level);
+            fearLevel = sharedPref.getInt("fearLevel", (int)fearLevel);
+            money = sharedPref.getInt("money", 0);
+
             }
         });
 
