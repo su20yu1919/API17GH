@@ -196,7 +196,7 @@ public class MainActivity extends Activity {
             }
 
             //CHANGE THIS TO MODIFY SPAWN RATE, NOT OTHER STUFF
-            level += 600;
+            level += 5000;
 
         }
     };
@@ -293,7 +293,7 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
-                battery = battery - 1;
+                battery = battery - 5;
                 timerRunning = false;
                 for (Iterator<Ghost> it = ghosts.iterator(); it.hasNext(); ) {
                     Ghost g = it.next();
