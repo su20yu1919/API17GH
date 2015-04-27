@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 import com.example.billsu.gh.R;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ import java.util.TimerTask;
 
 
 public class MainActivity extends Activity {
+    FileOutputStream outputStream;
     ImageView Radial;
     ImageView Scared_Person;
     ImageView Halo;
@@ -293,7 +295,8 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
-                battery = battery - 1;
+                if (Halo.getVisibility() == View.VISIBLE){
+                battery = battery - 1;}
                 timerRunning = false;
                 for (Iterator<Ghost> it = ghosts.iterator(); it.hasNext(); ) {
                     Ghost g = it.next();
@@ -380,7 +383,7 @@ public class MainActivity extends Activity {
         scoreBoard.setText("You Have: " + money + " Ectoplasms");
         scoreBoard.setTextColor(-65536);
         Halo.setX((float) guy.getX()-90);
-        Halo.setY((float) guy.getY()-220);
+        Halo.setY((float) guy.getY() - 220);
 
         Scared_Person.setX((float) guy.getX());
         Scared_Person.setY((float) guy.getY() - 147);
