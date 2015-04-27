@@ -35,6 +35,14 @@ android:weightSum="1">
     android:layout_alignParentBottom="true"
     android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MONEYYY"
+        android:id="@+id/textView3"
+        android:layout_marginBottom="128dp"
+        android:layout_alignEnd="@+id/fearUpgrade" />
+
 </RelativeLayout>
 
 

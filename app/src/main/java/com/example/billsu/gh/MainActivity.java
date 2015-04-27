@@ -46,10 +46,10 @@ public class MainActivity extends Activity {
     ArrayList<ImageView> moneys = new ArrayList<ImageView>();
     RelativeLayout layout;
     private double stressLevel = 0;
-    private double battery = 1200;
-    private double money;
+    public static double battery = 1200;
+    public static double money;
     private boolean timerRunning = false;
-    private double fearLevel = 0;
+    public static double fearLevel = 0;
     public static Boolean ENABLE_RESTART = false;
     int GhostId;
     double level;
@@ -394,12 +394,10 @@ public class MainActivity extends Activity {
     }
 
     public void storeButtonClicked(View v) {
-        Log.i("store button:", "intent step");
+
         Intent intent = new Intent(this, StoreActivity.class);
-        intent.putExtra("fear", fearLevel);
-        intent.putExtra("battery", battery);
-        intent.putExtra("money", money);
-        Log.i("store button: ", "start store");
+
+
         startActivity(intent);
     }
 
