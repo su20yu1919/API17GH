@@ -137,6 +137,7 @@ public class MainActivity extends Activity {
             editor.putInt("level", (int)level);
             editor.putInt("fearLevel", (int)fearLevel);
             editor.putInt("money", (int)money);
+            editor.putInt("score", (int)score);
             editor.commit();
                 Log.i("shared preference", "hello there" + sharedPref.getAll());
             }
@@ -148,6 +149,7 @@ public class MainActivity extends Activity {
             level = sharedPref.getInt("level", (int)level);
             fearLevel = sharedPref.getInt("fearLevel", (int)fearLevel);
             money = sharedPref.getInt("money", 0);
+            score = sharedPref.getInt("score", 0);
 
             }
         });
@@ -155,7 +157,7 @@ public class MainActivity extends Activity {
 
         for (int i = 0; i < 2; i++) {
             ImageView ghost = new ImageView(this);
-            ghost.setImageResource(R.drawable.ghost_tiny);
+            ghost.setImageResource(R.drawable.ghost_tiny2);
             ghost.setVisibility(View.VISIBLE);
 
             layout.addView(ghost);
@@ -167,7 +169,7 @@ public class MainActivity extends Activity {
 
         for (int i = 2; i < 4; i++) {
             ImageView ghost = new ImageView(this);
-            ghost.setImageResource(R.drawable.ghost_tiny);
+            ghost.setImageResource(R.drawable.ghost_tiny2);
             ghost.setVisibility(View.VISIBLE);
 
             layout.addView(ghost);
@@ -212,7 +214,7 @@ public class MainActivity extends Activity {
 
             for (int i = 0; i < 3; i++) {
                 ImageView ghost = new ImageView(MainActivity.this);
-                ghost.setImageResource(R.drawable.ghost_tiny);
+                ghost.setImageResource(R.drawable.ghost_tiny2);
                 ghost.setVisibility(View.VISIBLE);
 
                 layout.addView(ghost);
@@ -225,7 +227,7 @@ public class MainActivity extends Activity {
 
             for (int i = 0; i < 3; i++) {
                 ImageView ghost = new ImageView(MainActivity.this);
-                ghost.setImageResource(R.drawable.ghost_tiny);
+                ghost.setImageResource(R.drawable.ghost_tiny2);
                 ghost.setVisibility(View.VISIBLE);
 
                 layout.addView(ghost);
@@ -322,7 +324,7 @@ public class MainActivity extends Activity {
 
         Scared_Person.setX((float) guy.getX());
         Scared_Person.setY((float) guy.getY() - 147);
-        Radial.setX(Scared_Person.getX() - 130);
+        Radial.setX(Scared_Person.getX() - 220);
         Radial.setY(Scared_Person.getY() - 220);
         Halo.setX(Scared_Person.getX()-100);
         Halo.setY(Scared_Person.getY()-80);
@@ -425,8 +427,8 @@ public class MainActivity extends Activity {
         scoreBoard.setText("You Have: " + money + " Ectoplasms");
         scoreBoard.setTextColor(-65536);
 
-        TextView scoreBoard2 = (TextView) findViewById(R.id.textView);
-        scoreBoard2.setText("You Have Killed: " + score + "Ghosts");
+        TextView scoreBoard2 = (TextView) findViewById(R.id.textView4);
+        scoreBoard2.setText("You Have Killed: " + score + " Ghosts");
         scoreBoard2.setTextColor(-65536);
 
         return true;
