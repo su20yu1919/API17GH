@@ -36,9 +36,9 @@ public class StoreActivity extends Activity {
 
 
     public void fearUpgrade(View v) {
-        if (MainActivity.money>= 10 && MainActivity.fearLevel>0){
-                    MainActivity.fearLevel-=300;
-                       MainActivity.money-=10;
+        if (money>= 10){
+            MainActivity.fearLevel=-300;
+            money=-10;
         }
 
 
@@ -46,13 +46,12 @@ public class StoreActivity extends Activity {
     }
 
     public void batteryUpgrade(View v) {
-        if (money>= 2) {
-            if (MainActivity.money >= 2 && MainActivity.battery < 600) {
-                MainActivity.battery += 600;
-                MainActivity.money -= 2;
-            }
+        if (money>= 2){
+            MainActivity.battery+=600;
+            money=-2;
+        }
 
-        }}
+    }
 
     public void startGame(View V) {
         storeSong.stop();
