@@ -198,7 +198,7 @@ public class MainActivity extends Activity {
             }
 
             //CHANGE THIS TO MODIFY SPAWN RATE, NOT OTHER STUFF
-            level += 600;
+            level += 5000;
 
         }
     };
