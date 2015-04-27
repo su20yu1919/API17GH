@@ -14,6 +14,7 @@ android:weightSum="1">
     android:background="@drawable/fear_upgrade_button"
     android:onClick="fearUpgrade"
     android:layout_centerVertical="true"
+    android:layout_alignParentEnd="true"
     android:layout_alignStart="@+id/batteryUpgrade" />
 
 <ImageButton
@@ -22,9 +23,9 @@ android:weightSum="1">
     android:id="@+id/batteryUpgrade"
     android:background="@drawable/battery_upgrade_button"
     android:onClick="batteryUpgrade"
+    android:layout_marginBottom="87dp"
     android:layout_above="@+id/startButton"
-    android:layout_toEndOf="@+id/startButton"
-    android:layout_marginBottom="98dp" />
+    android:layout_toEndOf="@+id/startButton" />
 
 <ImageButton
     android:layout_width="wrap_content"
@@ -35,13 +36,21 @@ android:weightSum="1">
     android:layout_alignParentBottom="true"
     android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MONEYYY"
-        android:id="@+id/textView3"
-        android:layout_marginBottom="128dp"
-        android:layout_alignEnd="@+id/fearUpgrade" />
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/fearUpgrade"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="117dp">
+
+        <TextView
+            android:layout_width="184dp"
+            android:layout_height="95dp"
+            android:text="New Text"
+            android:id="@+id/storemoney"
+            android:layout_gravity="right|bottom" />
+    </FrameLayout>
+
 
 </RelativeLayout>
 

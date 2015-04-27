@@ -187,7 +187,7 @@ public class MainActivity extends Activity {
                 TimerMethod();
             }
 
-        }, 30000, (int) (Math.pow(1.0005, -1 * level) + 1000));
+        }, 15000, (int) (Math.pow(1.0005, -1 * level) + 1000));
 
         //Movement Timer
         myTimer2 = new Timer();
@@ -212,7 +212,7 @@ public class MainActivity extends Activity {
         public void run() {
             Random rand = new Random();
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 3; i++) {
                 ImageView ghost = new ImageView(MainActivity.this);
                 ghost.setImageResource(R.drawable.ghost_tiny);
                 ghost.setVisibility(View.VISIBLE);
@@ -225,7 +225,7 @@ public class MainActivity extends Activity {
                 ghosts.add(casper);
             }
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 3; i++) {
                 ImageView ghost = new ImageView(MainActivity.this);
                 ghost.setImageResource(R.drawable.ghost_tiny);
                 ghost.setVisibility(View.VISIBLE);
@@ -337,7 +337,7 @@ public class MainActivity extends Activity {
 
             public void onFinish() {
                 if (Halo.getVisibility() == View.VISIBLE){
-                battery = battery - 1;}
+                battery = battery - 5;}
                 timerRunning = false;
                 for (Iterator<Ghost> it = ghosts.iterator(); it.hasNext(); ) {
                     Ghost g = it.next();

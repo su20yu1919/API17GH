@@ -13,11 +13,13 @@ import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class StoreActivity extends Activity {
 
     MediaPlayer storeSong;
-    double money;
+
+    TextView scoreBoard;
     double battery;
     double fear;
 
@@ -26,6 +28,10 @@ public class StoreActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store_activity);
+        scoreBoard = (TextView) findViewById(R.id.storemoney);
+        scoreBoard.setText( MainActivity.money+"" );
+        scoreBoard.setTextColor(-65536);
+
        
 
 
@@ -36,9 +42,11 @@ public class StoreActivity extends Activity {
 
 
     public void fearUpgrade(View v) {
-        if (money>= 10){
-            MainActivity.fearLevel=-300;
-            money=-10;
+        if (MainActivity.money>= 10 && MainActivity.fearLevel>0){
+            MainActivity.fearLevel-=300;
+            MainActivity.money-=10;
+            scoreBoard.setText( MainActivity.money+"" );
+            scoreBoard.setTextColor(-65536);
         }
 
 
@@ -46,9 +54,11 @@ public class StoreActivity extends Activity {
     }
 
     public void batteryUpgrade(View v) {
-        if (money>= 2){
+        if (MainActivity.money>= 2 && MainActivity.battery<1200){
             MainActivity.battery+=600;
-            money=-2;
+            MainActivity.money-=2;
+            scoreBoard.setText( MainActivity.money+"" );
+            scoreBoard.setTextColor(-65536);
         }
 
     }
