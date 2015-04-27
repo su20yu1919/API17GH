@@ -21,14 +21,12 @@ public class StoreActivity extends Activity {
     double battery;
     double fear;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store_activity);
-        Bundle bundle = getIntent().getExtras();
-        money = bundle.getDouble("money");
-        fear = bundle.getDouble("fear");
-        battery = bundle.getDouble("battery");
+       
 
 
         storeSong = MediaPlayer.create(StoreActivity.this, R.raw.store_sound);
@@ -39,7 +37,7 @@ public class StoreActivity extends Activity {
 
     public void fearUpgrade(View v) {
         if (money>= 10){
-            fear=-300;
+            MainActivity.fearLevel=-300;
             money=-10;
         }
 
@@ -49,7 +47,7 @@ public class StoreActivity extends Activity {
 
     public void batteryUpgrade(View v) {
         if (money>= 2){
-            battery+=600;
+            MainActivity.battery+=600;
             money=-2;
         }
 
