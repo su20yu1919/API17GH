@@ -25,7 +25,8 @@
         android:layout_gravity="center"
         android:layout_x="80dp"
         android:layout_y="80dp"
-        android:layout_alignEnd="@+id/storeButton" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -50,7 +51,8 @@
         android:id="@+id/Scared_Person"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:visibility="visible"></ImageView>
+        android:visibility="visible"
+        android:src="@drawable/thresh"></ImageView>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -68,6 +70,16 @@
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginTop="49dp" />
 
     <ImageView
         android:layout_width="wrap_content"

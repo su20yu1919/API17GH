@@ -61,6 +61,7 @@ public class MainActivity extends Activity {
     MediaPlayer backgroundMusic;
     ImageView Batt;
     ImageView Meter;
+    private double score = 0;
 
 
 
@@ -74,10 +75,7 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
         Scared_Person = (ImageView) findViewById(R.id.Scared_Person);
-        Scared_Person.setImageResource(
-                R.drawable.thresh);
-        Scared_Person.setX((float) 200);
-        Scared_Person.setY((float) 300);
+
         level = -20623;
         final String filename = "save.txt";
 
@@ -91,8 +89,8 @@ public class MainActivity extends Activity {
 
 
         Radial = (ImageView) findViewById(R.id.lanternradial);
-        Radial.setX(Scared_Person.getX() + 50);
-        Radial.setY(Scared_Person.getY() + 70);
+        Radial.setX(Scared_Person.getX());
+        Radial.setY(Scared_Person.getY());
         layout = (RelativeLayout) findViewById(R.id.layout);
 
         // Log.i("image starts at", " " + Scared_Person.getX()+" "+ Scared_Person.getY());
@@ -120,7 +118,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Halo = (ImageView) findViewById(R.id.lanternkill);
                 Halo.setX(Scared_Person.getX() - 100);
-                Halo.setY(Scared_Person.getY() - 110);
+                Halo.setY(Scared_Person.getY() - 80);
                 if (Halo.getVisibility() == View.VISIBLE) {
                     Halo.setVisibility(View.INVISIBLE);
                     Lantern.setImageResource(R.drawable.lantern_off);
@@ -324,10 +322,10 @@ public class MainActivity extends Activity {
 
         Scared_Person.setX((float) guy.getX());
         Scared_Person.setY((float) guy.getY() - 147);
-        Radial.setX(Scared_Person.getX() - 220);
-        Radial.setY(Scared_Person.getY() - 200);
-        Halo.setX(Scared_Person.getX());
-        Halo.setY(Scared_Person.getY());
+        Radial.setX(Scared_Person.getX() - 130);
+        Radial.setY(Scared_Person.getY() - 220);
+        Halo.setX(Scared_Person.getX()-100);
+        Halo.setY(Scared_Person.getY()-80);
 
         new CountDownTimer(1000, 100) {
 
@@ -393,6 +391,7 @@ public class MainActivity extends Activity {
             if (guy.getHitbox().intersect(g.getHitbox())
                     && Halo.getVisibility() == View.VISIBLE) {
                 g.die();
+                score ++;
 
                 ImageView Money = new ImageView(this);
                 Money.setImageResource(R.drawable.ectoplasm_small_trans);
@@ -409,7 +408,9 @@ public class MainActivity extends Activity {
 
             for (int i = 0; i < moneys.size(); i++) {
                 ImageView m = moneys.get(i);
-                if (guy.getHitbox().contains((int) m.getX(), (int) m.getY())) {
+                Rect getdamoney = new Rect((int)m.getX(), (int)m.getY(), (int)m.getX() + 20,
+                        (int)m.getY() + 20);
+                if (guy.getHitbox().intersect(getdamoney)) {
                     m.setVisibility(View.INVISIBLE);
                     money++;
                     moneys.remove(m);
@@ -423,12 +424,10 @@ public class MainActivity extends Activity {
         TextView scoreBoard = (TextView) findViewById(R.id.textView);
         scoreBoard.setText("You Have: " + money + " Ectoplasms");
         scoreBoard.setTextColor(-65536);
-        Halo.setX((float) guy.getX()-90);
-        Halo.setY((float) guy.getY() - 220);
 
-        Scared_Person.setX((float) guy.getX());
-        Scared_Person.setY((float) guy.getY() - 147);
-
+        TextView scoreBoard2 = (TextView) findViewById(R.id.textView);
+        scoreBoard2.setText("You Have Killed: " + score + "Ghosts");
+        scoreBoard2.setTextColor(-65536);
 
         return true;
 
